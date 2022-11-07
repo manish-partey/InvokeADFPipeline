@@ -30,12 +30,14 @@ jobs:
       env:
         RESOURCEGROUPNAME: ${{ secrets.RESOURCEGROUPNAME }}
         EVENTGRIPTOPIC: ${{ secrets.EVENTGRIPTOPIC }}
+        ENDPOINT: ${{ secrets.ENDPOINT }}
+        KEY: ${{ secrets.KEY }}
       shell: pwsh
       run: |
             $resourceGroupName = $Env:RESOURCEGROUPNAME
             $topicName = $Env:EVENTGRIPTOPIC
-            $endpoint = "https://parteycustomeventgridtopic.westus-1.eventgrid.azure.net/api/events"
-            $keys = "5tXhmoajsRj1e2gkGuRSITIZ4cdIpLgWXU+7qLxFy70="
+            $endpoint = $Env:ENDPOINT
+            $keys = $Env:KEY
             $eventID = Get-Random 99999
 
             #Date format should be SortableDateTimePattern (ISO 8601)
