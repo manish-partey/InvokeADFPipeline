@@ -33,7 +33,7 @@ jobs:
       shell: pwsh
       
       run: |
-            echo "$RESOURCEGROUPNAME"
+            echo  Get-EnvironmentVariable "$RESOURCEGROUPNAME"
             echo ${{ secrets.EVENTGRIPTOPIC }}
             $resourceGroupName = "$RESOURCEGROUPNAME"
             $topicName = "$EVENTGRIPTOPIC"
