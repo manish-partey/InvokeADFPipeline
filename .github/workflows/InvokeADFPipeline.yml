@@ -33,10 +33,10 @@ jobs:
       shell: pwsh
       
       run: |
-            echo "::set-output name=RESOURCEGROUPNAME::$RESOURCEGROUPNAME"
-            echo "::set-output name=EVENTGRIPTOPIC::$EVENTGRIPTOPIC"
-            $resourceGroupName = "$RESOURCEGROUPNAME"
-            $topicName = "$EVENTGRIPTOPIC"
+            
+            
+            $resourceGroupName = "rgManish"
+            $topicName = "parteyCustomEventGridTopic"
             $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint
             $keys = Get-AzEventGridTopicKey -ResourceGroupName $resourceGroupName -Name $topicName
             $eventID = Get-Random 99999
