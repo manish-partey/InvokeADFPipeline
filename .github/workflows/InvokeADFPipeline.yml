@@ -32,6 +32,7 @@ jobs:
         EVENTGRIPTOPIC: ${{ secrets.EVENTGRIPTOPIC }}
         ENDPOINT: ${{ secrets.ENDPOINT }}
         KEY: ${{ secrets.KEY }}
+
       shell: pwsh
       run: |
             $resourceGroupName = $Env:RESOURCEGROUPNAME
@@ -60,5 +61,3 @@ jobs:
             #Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
             $body = "["+(ConvertTo-Json $htbody)+"]"
             Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys}
-
-    
