@@ -31,7 +31,10 @@ jobs:
         RESOURCEGROUPNAME: ${{ secrets.RESOURCEGROUPNAME }}
         EVENTGRIPTOPIC: ${{ secrets.EVENTGRIPTOPIC }}
       shell: pwsh
+      
       run: |
+            run: echo "$RESOURCEGROUPNAME"
+            run: echo ${{ secrets.EVENTGRIPTOPIC }}
             $resourceGroupName = "$RESOURCEGROUPNAME"
             $topicName = "$EVENTGRIPTOPIC"
             $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint
