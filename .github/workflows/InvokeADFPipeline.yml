@@ -56,6 +56,7 @@ jobs:
                 }
                 dataVersion="1.0"
             }
+            
 
             #Use ConvertTo-Json to convert event body from Hashtable to JSON Object
             #Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
