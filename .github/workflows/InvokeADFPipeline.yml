@@ -35,7 +35,7 @@ jobs:
             $resourceGroupName = "rgManish"
             $topicName = "parteyCustomEventGridTopic"
             $endpoint = "https://parteycustomeventgridtopic.westus-1.eventgrid.azure.net/api/events"
-            $keys = Get-AzEventGridTopicKey -ResourceGroupName $resourceGroupName -Name $topicName
+            $keys = "5tXhmoajsRj1e2gkGuRSITIZ4cdIpLgWXU+7qLxFy70="
             $eventID = Get-Random 99999
 
             #Date format should be SortableDateTimePattern (ISO 8601)
@@ -57,6 +57,6 @@ jobs:
             #Use ConvertTo-Json to convert event body from Hashtable to JSON Object
             #Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
             $body = "["+(ConvertTo-Json $htbody)+"]"
-            Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+            Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys}
 
     
