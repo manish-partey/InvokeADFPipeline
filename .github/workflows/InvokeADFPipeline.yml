@@ -31,13 +31,10 @@ jobs:
         RESOURCEGROUPNAME: ${{ secrets.RESOURCEGROUPNAME }}
         EVENTGRIPTOPIC: ${{ secrets.EVENTGRIPTOPIC }}
       shell: pwsh
-      
       run: |
-            
-            
             $resourceGroupName = "rgManish"
             $topicName = "parteyCustomEventGridTopic"
-            $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint
+            $endpoint = "https://parteycustomeventgridtopic.westus-1.eventgrid.azure.net/api/events"
             $keys = Get-AzEventGridTopicKey -ResourceGroupName $resourceGroupName -Name $topicName
             $eventID = Get-Random 99999
 
