@@ -29,8 +29,8 @@ jobs:
       id: ReadKeyVaultPowershell
       shell: pwsh
       run: |
-            $resourceGroupName = ${{ secrets.RESOURCEGROUPNAME }}
-            $topicName = ${{ secrets.EVENTGRIPTOPIC }}
+            $resourceGroupName = [RESOURCEGROUPNAME]
+            $topicName = [EVENTGRIPTOPIC]
             $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint
             $keys = Get-AzEventGridTopicKey -ResourceGroupName $resourceGroupName -Name $topicName
             $eventID = Get-Random 99999
